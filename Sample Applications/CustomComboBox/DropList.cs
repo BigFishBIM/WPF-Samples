@@ -11,6 +11,7 @@ namespace CustomComboBox
 {
     class DropList : ContentControl
     {
+        #region Command
         public ICommand Command
         {
             get { return (ICommand)GetValue(CommandProperty); }
@@ -19,7 +20,9 @@ namespace CustomComboBox
 
         public static readonly DependencyProperty CommandProperty =
             DependencyProperty.Register("Command", typeof(ICommand), typeof(DropList), new PropertyMetadata(null));
+        #endregion
 
+        #region CommandParameter
         public object CommandParameter
         {
             get { return GetValue(CommandParameterProperty); }
@@ -27,8 +30,10 @@ namespace CustomComboBox
         }
 
         public static readonly DependencyProperty CommandParameterProperty =
-            DependencyProperty.Register("CommandParameter", typeof(object), typeof(DropList), new PropertyMetadata(null));
+            DependencyProperty.Register("CommandParameter", typeof(object), typeof(DropList), new PropertyMetadata(null)); 
+        #endregion
 
+        #region SubTitle
         public string SubTitle
         {
             get { return (string)GetValue(SubTitleProperty); }
@@ -37,7 +42,9 @@ namespace CustomComboBox
 
         public static readonly DependencyProperty SubTitleProperty =
             DependencyProperty.Register("SubTitle", typeof(string), typeof(DropList));
+        #endregion
 
+        #region DynamicText
         public string DynamicText
         {
             get { return (string)GetValue(DynamicTextProperty); }
@@ -46,8 +53,9 @@ namespace CustomComboBox
 
         public static readonly DependencyProperty DynamicTextProperty =
             DependencyProperty.Register("DynamicText", typeof(string), typeof(DropList));
+        #endregion
 
-
+        #region ItemsSource
         public IEnumerable<object> ItemsSource
         {
             get { return (IEnumerable<object>)GetValue(ItemsSourceProperty); }
@@ -56,18 +64,20 @@ namespace CustomComboBox
 
         public static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register("ItemsSource", typeof(IEnumerable<object>), typeof(DropList));
+        #endregion
 
-
+        #region ItemContainerStyle
         public Style ItemContainerStyle
         {
             get { return (Style)GetValue(ItemContainerStyleProperty); }
             set { SetValue(ItemContainerStyleProperty, value); }
-
         }
 
         public static readonly DependencyProperty ItemContainerStyleProperty =
             DependencyProperty.Register("ItemContainerStyle", typeof(Style), typeof(DropList));
+        #endregion
 
+        #region DisplayMemberPath
         public string DisplayMemberPath
         {
             get { return (string)GetValue(DisplayMemberPathProperty); }
@@ -75,7 +85,7 @@ namespace CustomComboBox
         }
 
         public static readonly DependencyProperty DisplayMemberPathProperty =
-            DependencyProperty.Register("DisplayMemberPath", typeof(string), typeof(DropList), new PropertyMetadata(null));
-
+            DependencyProperty.Register("DisplayMemberPath", typeof(string), typeof(DropList), new PropertyMetadata(null)); 
+        #endregion
     }
 }
